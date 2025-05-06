@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Bible Verse</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f0f8ff; }
+        .verse-box { background: #fff; border-radius: 10px; padding: 20px; margin: 20px auto; width: 60%; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 20px; }
+        .answer { margin-top: 20px; font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+    <h1>Guess the Bible Verse</h1>
+    <div class="verse-box" id="verseBox">
+        Click below to get a verse clue!
+    </div>
+    <button onclick="showVerse()">New Clue</button>
+    <div class="answer" id="answerBox"></div>
+
+    <script>
+        const verses = [
+            { clue: "For God so loved the world...", answer: "John 3:16" },
+            { clue: "The Lord is my shepherd...", answer: "Psalm 23:1" },
+            { clue: "I can do all things...", answer: "Philippians 4:13" },
+            { clue: "In the beginning...", answer: "Genesis 1:1" },
+            { clue: "Your word is a lamp to my feet...", answer: "Psalm 119:105" },
+            { clue: "Trust in the Lord with all your heart...", answer: "Proverbs 3:5" },
+            { clue: "Be still and know that I am God...", answer: "Psalm 46:10" },
+            { clue: "Let your light shine before others...", answer: "Matthew 5:16" }
+        ];
+
+        function showVerse() {
+            const random = verses[Math.floor(Math.random() * verses.length)];
+            document.getElementById("verseBox").innerHTML = `<strong>Clue:</strong> ${random.clue}`;
+            document.getElementById("answerBox").innerText = `Answer: ${random.answer}`;
+        }
+    </script>
+</body>
+</html>
